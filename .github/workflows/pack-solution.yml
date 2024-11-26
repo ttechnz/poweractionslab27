@@ -1,22 +1,21 @@
-name: Pack Contoso_University_Core 
+name: Pack Contoso_University_Core
 
- on:
-  push: 
+on:
+  push:
+    paths:
+      - contents/**
+  workflow_dispatch:
 
-    paths: 
-
-   #   - contents/** 
-
-  workflow_dispatch:
-  jobs: 
-  build: 
+jobs:
+ build: 
 
     runs-on: windows-latest 
 
-     steps: 
+    steps: 
 
       - uses: actions/checkout@v2 
-       - uses: microsoft/powerplatform-actions/pack-solution@v0 
+
+      - uses: microsoft/powerplatform-actions/pack-solution@v0 
 
         with: 
 
@@ -25,10 +24,11 @@ name: Pack Contoso_University_Core
           solution-folder: contents 
 
           solution-type: Both 
-          - uses: actions/upload-artifact@v2 
+
+      - uses: actions/upload-artifact@v2
 
         with: 
 
           name: packed-solution 
 
-          path: out
+          path: out/ 
