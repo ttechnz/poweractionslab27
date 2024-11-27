@@ -14,8 +14,8 @@ jobs:
       - uses: microsoft/powerplatform-actions/pack-solution@v0
         with:
           solution-file: out/GithubActionsPipeline‎.zip
-          solution-folder: solutions/CHANDRA_ALMLabs/Other
-          solution-type: Both
+          solution-folder: solutions/CHANDRA_ALMLabs
+          solution-type: unmanaged
       - uses: actions/upload-artifact@v4
         with:
           name: packed-solution
