@@ -1,38 +1,38 @@
-name: Deploy Contoso_University_Core 
+name: Deploy Contoso_University_Core
 
-on: 
-  workflow_run: 
-  
-    workflows: ["Pack Contoso_University_Core"] 
-    
-    branches: [main] 
-    
-    types: 
-    
-      - completed 
-      
-  workflow_dispatch: 
-  
- env:
  
-  #edit your values here
+on:
+ 
+  workflow_run:
+ 
+    workflows: ["Pack Contoso_University_Core"]
+ 
+    branches: [main]
+ 
+    types:
+ 
+      - completed
+ 
+  workflow_dispatch: 
+env:
+#edit your values here
   ENVIRONMENT_URL: 'https://ard26test.crm6.dynamics.com'
   CLIENT_ID: 'b0ab8343-d672-4e24-86d0-d48c19b67862'
   TENANT_ID: 'd1ee9b37-cae3-4945-a777-7b8b03047391'
   
 jobs: 
-  deploy: 
-    runs-on: windows-latest 
-    environment: production 
-    steps: 
-      - uses: dawidd6/action-download-artifact@v2 
-        with: 
-          workflow: pack-solution.yml 
-          name: packed-solution 
-      - uses: microsoft/powerplatform-actions/import-solution@v0 
-        with: 
-         environment-url: ${{env.ENVIRONMENT_URL}}
-         app-id: ${{env.CLIENT_ID}}
-         client-secret: ${{ secrets.POWERPLATFORMSPN }}
-         tenant-id: ${{env.TENANT_ID}}
-         solution-file: GithubActionsPipeline.zip
+     deploy:         
+        runs-on: windows-latest 
+        environment: production 
+        steps: 
+           - uses: dawidd6/action-download-artifact@v2 
+             with: 
+               workflow: pack-solution.yml 
+               name: packed-solution 
+           - uses: microsoft/powerplatform-actions/import-solution@v0 
+             with: 
+               environment-url: ${{env.ENVIRONMENT_URL}}
+               app-id: ${{ env.CLIENT_ID }} 
+               client-secret: ${{ secrets.POWERPLATFORMSPN }} 
+               tenant-id: ${{env.TENANT_ID}}
+               solution-file: GithubActionsPipeline‎.zip
