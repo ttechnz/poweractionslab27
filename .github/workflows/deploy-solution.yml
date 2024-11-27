@@ -1,25 +1,25 @@
 name: Deploy Contoso_University_Core 
 
 on: 
-
   workflow_run: 
-
+  
     workflows: ["Pack Contoso_University_Core"] 
-
+    
     branches: [main] 
-
+    
     types: 
-
+    
       - completed 
-
+      
   workflow_dispatch: 
+  
+ env:
  
-env:
-#edit your values here
+  #edit your values here
   ENVIRONMENT_URL: 'https://ard26test.crm6.dynamics.com'
   CLIENT_ID: 'b0ab8343-d672-4e24-86d0-d48c19b67862'
   TENANT_ID: 'd1ee9b37-cae3-4945-a777-7b8b03047391'
-
+  
 jobs: 
   deploy: 
     runs-on: windows-latest 
