@@ -1,10 +1,10 @@
 name: Pack Contoso_University_Core
 
 on:
-  push: 
-    paths: 
-      - contents/** 
-  workflow_dispatch: 
+  push:
+    paths:
+      - contents/**
+  workflow_dispatch:
 
 
 jobs: 
@@ -17,7 +17,7 @@ jobs:
           solution-file: out/contoso_university_core.zip 
           solution-folder: contents 
           solution-type: Both 
-      - uses: actions/upload-artifact@v2 
+      - uses: actions/upload-artifact@v4 
         with: 
           name: packed-solution 
           path: out/ 
