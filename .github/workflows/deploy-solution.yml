@@ -45,11 +45,10 @@ jobs:
 
         with: 
 
-          environment-url: ${{env.ENVIRONMENT_URL}}
-
-          user-name: ${{ secrets.USERNAME1 }} 
-
-          password-secret: ${{ secrets.PASSWORD }} 
+        environment-url: ${{env.ENVIRONMENT_URL}}
+        app-id: ${{env.CLIENT_ID}}
+        client-secret: ${{ secrets.PowerPlatformSPN }}
+        tenant-id: ${{env.TENANT_ID}}
           
           tenant-id: ${{env.TENANT_ID}}
 
