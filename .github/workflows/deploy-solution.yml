@@ -1,7 +1,5 @@
 name: Deploy Contoso_University_Core 
 
- 
-
 on: 
 
   workflow_run: 
@@ -23,29 +21,18 @@ env:
   TENANT_ID: 'd1ee9b37-cae3-4945-a777-7b8b03047391'
 
 jobs: 
-
   deploy: 
-
     runs-on: windows-latest 
-
     environment: production 
-
     steps: 
-
       - uses: dawidd6/action-download-artifact@v2 
-
         with: 
-
           workflow: pack-solution.yml 
-
           name: packed-solution 
-
       - uses: microsoft/powerplatform-actions/import-solution@v0 
-
         with: 
-
          environment-url: ${{env.ENVIRONMENT_URL}}
          app-id: ${{env.CLIENT_ID}}
          client-secret: ${{ secrets.POWERPLATFORMSPN }}
          tenant-id: ${{env.TENANT_ID}}
-         solution-file: GithubActionsPipeline.zip 
+         solution-file: GithubActionsPipeline.zip
