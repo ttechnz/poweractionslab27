@@ -39,9 +39,9 @@ jobs:
 
         with: 
 
-          environment-url: <YOUR TRIAL ENVIRONMENT URL HERE> 
+          environment-url: https://ard26test.crm6.dynamics.com/
 
-          user-name: ${{ secrets.USERNAME }} 
+          user-name: ${{ secrets.USERNAME1 }} 
 
           password-secret: ${{ secrets.PASSWORD }} 
 
